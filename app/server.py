@@ -14,13 +14,16 @@ app = Starlette()
 app.debug = True
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount('/static', StaticFiles(directory="app/static"))
-#model_file_url = 'https://www.dropbox.com/s/3y8ht35rxr0s1ao/model_exported.pkl'
-#model_file_name = 'model_exported'
+model_file_url_fwd = 'https://www.dropbox.com/s/h5zcibfp86wo4a8/model_fwd.pkl'
+model_file_name_fwd = 'model_fwd'
+model_file_url_bwd = 'https://www.dropbox.com/s/xirwt9ieazwpxhn/model_bwd.pkl'
+model_file_name_bwd = 'model_bwd'
 
 path = Path(__file__).parent
 
 async def setup_learner():
-    #await download_file(model_file_url, path/'models'/f'{model_file_name}.pkl')
+    await download_file(model_file_url_fwd, path/'models'/f'{model_file_name_fwd}.pkl')
+    await download_file(model_file_url_bwd, path/'models'/f'{model_file_name_bwd}.pkl')
     learn_fwd =load_learner(path/'models','model_fwd.pkl')
     learn_bwd =load_learner(path/'models','model_bwd.pkl')
     classes_ = ['FACTS','Non-FACTS']
