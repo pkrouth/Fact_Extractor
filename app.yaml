@@ -1,0 +1,3 @@
+service: fact-extraction-app
+runtime: custom
+env: flex
