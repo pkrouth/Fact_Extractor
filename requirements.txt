@@ -7,3 +7,4 @@ python-multipart
 aiofiles
 aiohttp
 pandas==0.24.2
+nltk
