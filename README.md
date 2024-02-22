@@ -2,7 +2,7 @@
 ## Goal: Identify sentences from Income Tax Judgments which have components of Case Facts.
 
 ## Approach
-* Train a Language Model and Encoder
+* Train a Language Model with Encoder-Decoder
 * Text Classification on Labeled legal documents
 
 ## Web App
